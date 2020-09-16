@@ -11,7 +11,7 @@ public class Tablero {
 	
 	public Tablero() {
 		//this.tablero = new ArrayList<Integer>();
-		this.tablero = new int[3][3];
+		this.tablero = new int[3][3]; 
 		this.turnos=0;
 	}
 	
