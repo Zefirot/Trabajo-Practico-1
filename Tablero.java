@@ -156,11 +156,12 @@ public class Tablero {
 		}
 		return 0;
 	}
-	
-	
-	
-	
 
+	public int getTurno() {
+		return turnos;
+	}
+	
+	
 	@Override
 	public String toString() {
 		
