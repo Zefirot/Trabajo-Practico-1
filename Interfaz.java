@@ -51,6 +51,7 @@ public class Interfaz {
 		frame.setBounds(100, 100, 700, 500);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
+		frame.getContentPane().setBackground(Color.GRAY);
 		
 		//Texto para pedir nombres de jugadores
 		JLabel lblNewLabel = new JLabel("Nombre del juagador 1:");
@@ -81,11 +82,13 @@ public class Interfaz {
 			btnJugar.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
-					/*textNombreJugador1.setVisible(false);
-					textNombreJugador2.setVisible(false);
-					lblNewLabel.setVisible(false);
-					lblNewLabel_1.setVisible(false);
-					btnJugar.setVisible(false);*/
+					
+					UITablero tablero = new UITablero();
+					//tablero.setVisible(true);
+					
+					//frame.getContentPane().add(tablero);
+					//frame.setContentPane(tablero);
+					
 				}
 			});
 			btnJugar.setBounds(248, 284, 152, 63);

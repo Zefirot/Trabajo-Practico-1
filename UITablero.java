@@ -1,16 +1,21 @@
 package trabajo;
 
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JButton;
-import javax.swing.JFrame;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class UITablero {
-	private Tablero tablero;
-	private JFrame frame;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import java.awt.Font;
 
+public class UITablero extends JFrame {
+
+	private JPanel contentPane;
+	private Tablero tablero;
 	/**
 	 * Launch the application.
 	 */
@@ -18,8 +23,8 @@ public class UITablero {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UITablero window = new UITablero();
-					window.frame.setVisible(true);
+					UITablero frame = new UITablero();
+					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -28,114 +33,231 @@ public class UITablero {
 	}
 
 	/**
-	 * Create the application.
+	 * Create the frame.
 	 */
 	public UITablero() {
-		initialize();
-	}
-
-	/**
-	 * Initialize the contents of the frame.
-	 */
-	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 700, 500);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 700, 500);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		
 		
 		//Creo el tablero
 		this.tablero=new Tablero();
+
+		JLabel lblTurnos = new JLabel("Turnos: 0");
+		lblTurnos.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblTurnos.setBounds(10, 11, 83, 20);
+		contentPane.add(lblTurnos);
 		
 		JButton btnButton1 = new JButton("");
 		btnButton1.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				
-				btnButton1.setEnabled(false);
-				if(tablero.getTurno()%2!=0) {
-					btnButton1.setText("O");
-				}else {
-					btnButton1.setText("X");
+
+				if(btnButton1.isEnabled()) {
+					
+					tablero.marcarTablero(1);
+
+					lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+					
+					btnButton1.setEnabled(false);
+					if(tablero.getTurno()%2==0) {
+						btnButton1.setText("O");
+					}else {
+						btnButton1.setText("X");
+					}	
 				}
-				
-				tablero.marcarTablero(1);
-				
+
 			}
 		});
+		contentPane.setLayout(null);
 		btnButton1.setBounds(229, 138, 54, 39);
-		frame.getContentPane().add(btnButton1);
-		
+		contentPane.add(btnButton1);
+
 		JButton btnButton2 = new JButton("");
 		btnButton2.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				tablero.marcarTablero(2);
+
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+				
+				btnButton2.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton2.setText("O");
+				}else {
+					btnButton2.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton2.setBounds(319, 138, 54, 39);
-		frame.getContentPane().add(btnButton2);
-		
+		contentPane.add(btnButton2);
+
 		JButton btnButton3 = new JButton("");
 		btnButton3.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				tablero.marcarTablero(3);
+				
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+				
+				btnButton3.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton3.setText("O");
+				}else {
+					btnButton3.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton3.setBounds(411, 138, 54, 39);
-		frame.getContentPane().add(btnButton3);
-		
+		contentPane.add(btnButton3);
+
 		JButton btnButton4 = new JButton("");
 		btnButton4.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				tablero.marcarTablero(4);
+
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+				
+				btnButton4.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton4.setText("O");
+				}else {
+					btnButton4.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton4.setBounds(229, 205, 54, 39);
-		frame.getContentPane().add(btnButton4);
-		
+		contentPane.add(btnButton4);
+
 		JButton btnButton5 = new JButton("");
 		btnButton5.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				tablero.marcarTablero(5);
+				
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+
+				btnButton5.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton5.setText("O");
+				}else {
+					btnButton5.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton5.setBounds(319, 205, 54, 39);
-		frame.getContentPane().add(btnButton5);
-		
+		contentPane.add(btnButton5);
+
 		JButton btnButton6 = new JButton("");
 		btnButton6.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+
+				tablero.marcarTablero(6);
+				
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+
+				btnButton6.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton6.setText("O");
+				}else {
+					btnButton6.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton6.setBounds(411, 205, 54, 39);
-		frame.getContentPane().add(btnButton6);
-		
+		contentPane.add(btnButton6);
+
 		JButton btnButton7 = new JButton("");
 		btnButton7.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				tablero.marcarTablero(7);
+				
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+				
+				btnButton7.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton7.setText("O");
+				}else {
+					btnButton7.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton7.setBounds(229, 270, 54, 39);
-		frame.getContentPane().add(btnButton7);
-		
+		contentPane.add(btnButton7);
+
 		JButton btnButton8 = new JButton("");
 		btnButton8.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				tablero.marcarTablero(8);
+				
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+				
+				btnButton8.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton8.setText("O");
+				}else {
+					btnButton8.setText("X");
+				}
+
+
+
 			}
 		});
 		btnButton8.setBounds(319, 270, 54, 39);
-		frame.getContentPane().add(btnButton8);
-		
+		contentPane.add(btnButton8);
+
 		JButton btnButton9 = new JButton("");
 		btnButton9.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				tablero.marcarTablero(9);
+				
+				lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+				
+				btnButton9.setEnabled(false);
+				if(tablero.getTurno()%2==0) {
+					btnButton9.setText("O");
+				}else {
+					btnButton9.setText("X");
+				}
+				
+				
 			}
 		});
 		btnButton9.setBounds(411, 270, 54, 39);
-		frame.getContentPane().add(btnButton9);
+		contentPane.add(btnButton9);
+		
+		
 	}
-
 }
+
