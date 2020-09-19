@@ -4,12 +4,10 @@ package codigoBusiness;
 public class Tablero {
 
 	private int[][] tablero;
-	//private ArrayList<Integer> tablero;
 	private int turnos;
 	
 	
 	public Tablero() {
-		//this.tablero = new ArrayList<Integer>();
 		this.tablero = new int[3][3]; 
 		this.turnos=0;
 	}
@@ -82,10 +80,10 @@ public class Tablero {
 		for(int c=0; c<tablero[0].length; c++) { //Recorro filas
 			valor=tablero[c][0]; //Agarro el primer valor de la fila
 		
-			for(int f=0; f<tablero.length; f++) { //Recorro columnas
+			for(int f=0; f<tablero.length; f++) { //Recorro las columnas
 				cont += tablero[c][f]==valor? 1:0;
 			}
-			if(cont==3) {return valor;}
+			if(cont==3) {return valor;} //Comprueba si existe ganador
 			
 			cont=0;  //Reseteo el valor del contador
 		}
@@ -94,7 +92,7 @@ public class Tablero {
 		
 	}
 	
-	private int ganadorColumnas() { //ARREGLAR
+	private int ganadorColumnas() {
 
 		int cont=0;
 		int valor=0;
@@ -103,7 +101,7 @@ public class Tablero {
 
 			valor=tablero[0][f]; //Agarro el primer valor de la fila
 
-			for(int c=0; c<tablero[0].length; c++) { //Recorro columnas
+			for(int c=0; c<tablero[0].length; c++) { //Recorro las columnas
 				cont += tablero[c][f]==valor? 1:0;
 			}
 			
@@ -119,7 +117,7 @@ public class Tablero {
 		
 		int cont = 0;
 		int aux=0;
-		int valor=tablero[0][0]; //Agarro el primer valor
+		int valor=tablero[0][0];
 		
 		for(int c=0; c<tablero.length; c++ ) {
 			
@@ -145,7 +143,7 @@ public class Tablero {
 		
 	}
 	
-	private int ganadorDiagonalesContinuas() {
+	private int ganadorDiagonalesContinuas() { //Contemplo cada posible caso que existe para ganar con diagonales continuas.
 	
 		for(int i=1 ; i<=2 ; i++) {
 			
@@ -172,47 +170,14 @@ public class Tablero {
 	
 	@Override
 	public String toString() {
-		
 		String mat = "";
-		
 		for(int c=0; c<tablero[0].length; c++) {
-			
-			
 			for(int f=0; f<tablero.length; f++) {
-				
-				mat += String.valueOf(tablero[c][f])+" ";
-				
-				
+				mat += String.valueOf(tablero[c][f])+" ";	
 			}
-			
 			mat+="\n";
-			
-			
 		}
-		
-		return mat;
-		
-		
-	}
-	
-	
-	
-	public static void main(String[] args) {
-		
-		Tablero nuevo = new Tablero();
-		nuevo.marcarTablero(1);//P1
-		nuevo.marcarTablero(5);//P2
-		nuevo.marcarTablero(2);//P1
-		nuevo.marcarTablero(4);//P2
-		nuevo.marcarTablero(9);//P1
-		nuevo.marcarTablero(8);//P2
-		nuevo.marcarTablero(6);
-		nuevo.marcarTablero(7);
-		nuevo.marcarTablero(3);
-		
-		System.out.println(nuevo.toString());
-		System.out.println(nuevo.ganador());
-		
+		return mat;	
 	}
 	
 	

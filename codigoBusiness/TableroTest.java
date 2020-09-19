@@ -27,6 +27,18 @@ public class TableroTest {
 	
 	
 	@Test
+	public void TurnosTest() {
+		tablero.marcarTablero(1);
+		tablero.marcarTablero(2);
+		tablero.marcarTablero(3);
+		tablero.marcarTablero(4);
+
+		assertEquals(4,tablero.getTurno());
+	}
+	
+	
+	
+	@Test
 	public void TableroGanadorFilaTest() { //FILAS
 		
 		tablero.marcarTablero(1); //P1
