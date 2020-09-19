@@ -1,4 +1,4 @@
-package trabajo;
+package codigoBusiness;
 
 
 public class Tablero {
@@ -15,9 +15,7 @@ public class Tablero {
 	}
 	
 	public void marcarTablero(int posicion) {
-		if(posicion<1 || posicion>9) {
-			throw new RuntimeException("La posicion ingresada no corresponde con ningun lugar");
-		}
+		verificarPosicion(posicion);
 		
 		turnos++;
 		
@@ -28,6 +26,16 @@ public class Tablero {
 		}
 		
 	}
+	
+	private void verificarPosicion(int posicion) {
+		if(posicion<1) {
+			throw new IllegalArgumentException("La posicion ingresada no puede ser menor a 1: "+posicion);
+		}
+		if(posicion>9) {
+			throw new IllegalArgumentException("La posicion ingresada no puede ser mayor 9: "+posicion);
+		}
+	}
+	
 	
 	private void asignar(int[][] tablero, int posicion, int valor) {
 		if(posicion<=3) {

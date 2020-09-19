@@ -1,4 +1,4 @@
-package trabajo;
+package interfaz;
 
 import java.awt.EventQueue;
 
@@ -83,11 +83,10 @@ public class Interfaz {
 				@Override
 				public void mouseClicked(MouseEvent arg0) {
 					
-					UITablero tablero = new UITablero();
-					//tablero.setVisible(true);
 					
-					//frame.getContentPane().add(tablero);
-					//frame.setContentPane(tablero);
+					
+					
+					
 					
 				}
 			});
