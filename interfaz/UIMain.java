@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
+import javax.swing.JOptionPane;
 
 public class UIMain {
 
@@ -66,7 +67,7 @@ public class UIMain {
 				
 				login.setVisible(false);
 				tablero.setVisible(true);
-				
+				JOptionPane.showMessageDialog(frame, "Aiuda"); //ARREGLAR ESTO (Forma de obligar al usuario a ingresar 2 nombres)
 			}
 			
 		});

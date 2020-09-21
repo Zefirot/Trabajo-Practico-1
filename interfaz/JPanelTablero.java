@@ -36,15 +36,13 @@ public class JPanelTablero extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 
-				if(btnButton1.isEnabled()) {
+				if(btnButton1.isEnabled()) { //Forma de controlar el boton para que solo se presione 1 vez.
 					
 					tablero.marcarTablero(1);
 
 					lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
 					
 					btnButton1.setEnabled(false);
-					
-					btnButton1.setBackground(Color.GREEN); //Posibilidad de cambiar el color a los botones?
 					
 					if(tablero.getTurno()%2==0) {
 						btnButton1.setText("O");
