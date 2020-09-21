@@ -1,60 +1,35 @@
 package interfaz;
 
-import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
-import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
 
 import codigoBusiness.Tablero;
 
-import javax.swing.JLabel;
-import java.awt.Font;
+public class JPanelTablero extends JPanel {
 
-public class UITablero extends JFrame {
-
-	private JPanel contentPane;
+	/**
+	 * Create the panel.
+	 */
+	
 	private Tablero tablero;
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					UITablero frame = new UITablero();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
-	public UITablero() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 700, 500);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		
-		
+	
+	public JPanelTablero() {
+		setLayout(null);
 		
 		//Creo el tablero
 		this.tablero=new Tablero();
-
+		
+		
 		JLabel lblTurnos = new JLabel("Turnos: 0");
 		lblTurnos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTurnos.setBounds(10, 11, 83, 20);
-		contentPane.add(lblTurnos);
+		add(lblTurnos);
 		
 		JButton btnButton1 = new JButton("");
 		btnButton1.addMouseListener(new MouseAdapter() {
@@ -80,9 +55,9 @@ public class UITablero extends JFrame {
 
 			}
 		});
-		contentPane.setLayout(null);
-		btnButton1.setBounds(229, 138, 54, 39);
-		contentPane.add(btnButton1);
+		
+		btnButton1.setBounds(103, 71, 54, 39);
+		add(btnButton1);
 
 		JButton btnButton2 = new JButton("");
 		btnButton2.addMouseListener(new MouseAdapter() {
@@ -104,8 +79,8 @@ public class UITablero extends JFrame {
 
 			}
 		});
-		btnButton2.setBounds(319, 138, 54, 39);
-		contentPane.add(btnButton2);
+		btnButton2.setBounds(193, 71, 54, 39);
+		add(btnButton2);
 
 		JButton btnButton3 = new JButton("");
 		btnButton3.addMouseListener(new MouseAdapter() {
@@ -128,8 +103,8 @@ public class UITablero extends JFrame {
 
 			}
 		});
-		btnButton3.setBounds(411, 138, 54, 39);
-		contentPane.add(btnButton3);
+		btnButton3.setBounds(285, 71, 54, 39);
+		add(btnButton3);
 
 		JButton btnButton4 = new JButton("");
 		btnButton4.addMouseListener(new MouseAdapter() {
@@ -153,8 +128,8 @@ public class UITablero extends JFrame {
 	
 			}
 		});
-		btnButton4.setBounds(229, 205, 54, 39);
-		contentPane.add(btnButton4);
+		btnButton4.setBounds(103, 138, 54, 39);
+		add(btnButton4);
 
 		JButton btnButton5 = new JButton("");
 		btnButton5.addMouseListener(new MouseAdapter() {
@@ -179,8 +154,8 @@ public class UITablero extends JFrame {
 				
 			}
 		});
-		btnButton5.setBounds(319, 205, 54, 39);
-		contentPane.add(btnButton5);
+		btnButton5.setBounds(193, 138, 54, 39);
+		add(btnButton5);
 
 		JButton btnButton6 = new JButton("");
 		btnButton6.addMouseListener(new MouseAdapter() {
@@ -205,8 +180,8 @@ public class UITablero extends JFrame {
 
 			}
 		});
-		btnButton6.setBounds(411, 205, 54, 39);
-		contentPane.add(btnButton6);
+		btnButton6.setBounds(285, 138, 54, 39);
+		add(btnButton6);
 
 		JButton btnButton7 = new JButton("");
 		btnButton7.addMouseListener(new MouseAdapter() {
@@ -228,8 +203,8 @@ public class UITablero extends JFrame {
 				}
 			}
 		});
-		btnButton7.setBounds(229, 270, 54, 39);
-		contentPane.add(btnButton7);
+		btnButton7.setBounds(103, 203, 54, 39);
+		add(btnButton7);
 
 		JButton btnButton8 = new JButton("");
 		btnButton8.addMouseListener(new MouseAdapter() {
@@ -251,8 +226,8 @@ public class UITablero extends JFrame {
 				
 			}
 		});
-		btnButton8.setBounds(319, 270, 54, 39);
-		contentPane.add(btnButton8);
+		btnButton8.setBounds(193, 203, 54, 39);
+		add(btnButton8);
 
 		JButton btnButton9 = new JButton("");
 		btnButton9.addMouseListener(new MouseAdapter() {
@@ -277,10 +252,9 @@ public class UITablero extends JFrame {
 					
 			}
 		});
-		btnButton9.setBounds(411, 270, 54, 39);
-		contentPane.add(btnButton9);
-		
+		btnButton9.setBounds(285, 203, 54, 39);
+		add(btnButton9);
 		
 	}
-}
 
+}
