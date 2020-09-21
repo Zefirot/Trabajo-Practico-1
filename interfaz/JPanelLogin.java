@@ -15,6 +15,8 @@ public class JPanelLogin extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	private JButton btnJugar;
+	
 	public JPanelLogin() {
 		setLayout(null);
 
@@ -44,20 +46,18 @@ public class JPanelLogin extends JPanel {
 		textNombreJugador2.setColumns(10);
 
 
-		JButton btnJugar = new JButton("Jugar!");
-
+		this.btnJugar = new JButton("Jugar!");
 		btnJugar.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		btnJugar.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-
-			}
-		});
 		btnJugar.setBounds(149, 199, 152, 63);
 		add(btnJugar);
 
 
 		
 	}
+	
+	public JButton sePresiono() {
+		return btnJugar;
+	}
+	
 
 }

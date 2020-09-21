@@ -1,6 +1,8 @@
 package interfaz;
 
 import java.awt.EventQueue;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
@@ -37,6 +39,7 @@ public class UIMain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setTitle("TATETORO");
 		frame.setBounds(100, 100, 474, 318);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
@@ -54,6 +57,21 @@ public class UIMain {
 		
 		layeredPane.add(login);
 		layeredPane.add(tablero);
+		
+		
+		login.sePresiono().addMouseListener(new MouseAdapter() {
+			
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				
+				login.setVisible(false);
+				tablero.setVisible(true);
+				
+			}
+			
+		});
+		
+		
 		
 		
 	}
