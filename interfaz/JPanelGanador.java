@@ -14,14 +14,14 @@ public class JPanelGanador extends JPanel {
 		
 		this.lblNombreGanador = new JLabel("Felicidades: ");
 		lblNombreGanador.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		lblNombreGanador.setBounds(163, 212, 110, 38);
+		lblNombreGanador.setBounds(151, 211, 207, 38);
 		add(lblNombreGanador);
 
 		
 	}
 	
 	public void setNombreGanador(String ganador) {
-		lblNombreGanador.setText(lblNombreGanador.getText()+ganador);
+		lblNombreGanador.setText(lblNombreGanador.getText()+ganador+" ganaste!");
 	}
 	
 }

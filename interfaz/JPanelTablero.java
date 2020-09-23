@@ -2,6 +2,8 @@ package interfaz;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -45,7 +47,10 @@ public class JPanelTablero extends JPanel {
 						btnButton1.setText("O");
 					}else {
 						btnButton1.setText("X");
-					}	
+					}
+					
+					
+					UIMain.detectarGanador();
 				}
 
 			}
@@ -70,6 +75,9 @@ public class JPanelTablero extends JPanel {
 					}else {
 						btnButton2.setText("X");
 					}
+					
+					
+					UIMain.detectarGanador();
 				}
 
 			}
@@ -93,6 +101,9 @@ public class JPanelTablero extends JPanel {
 					}else {
 						btnButton3.setText("X");
 					}
+					
+					
+					UIMain.detectarGanador();
 
 				}
 
@@ -118,6 +129,9 @@ public class JPanelTablero extends JPanel {
 					}else {
 						btnButton4.setText("X");
 					}
+					
+					
+					UIMain.detectarGanador();
 					
 				}
 	
@@ -145,6 +159,8 @@ public class JPanelTablero extends JPanel {
 						btnButton5.setText("X");
 					}
 					
+					UIMain.detectarGanador();
+					
 				}
 				
 			}
@@ -171,6 +187,9 @@ public class JPanelTablero extends JPanel {
 						btnButton6.setText("X");
 					}
 					
+					
+					UIMain.detectarGanador();
+					
 				}
 
 			}
@@ -194,7 +213,10 @@ public class JPanelTablero extends JPanel {
 						btnButton7.setText("O");
 					}else {
 						btnButton7.setText("X");
-					}	
+					}
+					
+					UIMain.detectarGanador();
+					
 				}
 			}
 		});
@@ -217,6 +239,9 @@ public class JPanelTablero extends JPanel {
 					}else {
 						btnButton8.setText("X");
 					}
+					
+					UIMain.detectarGanador();
+					
 				}
 				
 			}
@@ -243,6 +268,7 @@ public class JPanelTablero extends JPanel {
 					}
 					
 					
+					UIMain.detectarGanador();
 				}
 					
 			}
@@ -252,6 +278,10 @@ public class JPanelTablero extends JPanel {
 		
 	}
 	
+	
+	public int getGanador() {
+		return tablero.ganador();
+	}
 	
 
 }

@@ -56,11 +56,8 @@ public class Tablero {
 		else if(ganadorColumnas()>0) {
 			return ganadorColumnas();
 		}
-		else if(ganadorDiagonalIzquierda()>0) {
-			return ganadorDiagonalIzquierda();
-		}
-		else if(ganadorDiagonalDerecha()>0) {
-			return ganadorDiagonalDerecha();
+		else if(ganadorDiagonal()>0) {
+			return ganadorDiagonal();
 		}
 		else if(ganadorDiagonalesContinuas()>0) {
 			return ganadorDiagonalesContinuas();
@@ -72,91 +69,77 @@ public class Tablero {
 	
 	private int ganadorFilas() { //Se detecta cuando hay un ganador por filas.
 		
-		int cont=0;
-		
-		int valor=0;
-		
-		for(int c=0; c<tablero[0].length; c++) { //Recorro filas
-			valor=tablero[c][0]; //Agarro el primer valor de la fila
-		
-			for(int f=0; f<tablero.length; f++) { //Recorro las columnas
-				cont += tablero[c][f]==valor? 1:0;
-			}
-			if(cont==3) {return valor;} //Comprueba si existe ganador
+		for(int jugador=1 ; jugador<=2 ; jugador++) {
 			
-			cont=0;  //Reseteo el valor del contador
+			if(tablero[0][0]==jugador && tablero[0][1]==jugador && tablero[0][2]==jugador) {
+				return jugador;
+			}
+			
+			if(tablero[1][0]==jugador && tablero[1][1]==jugador && tablero[1][2]==jugador) {
+				return jugador;
+			}
+			
+			if(tablero[2][0]==jugador && tablero[2][1]==jugador && tablero[2][2]==jugador) {
+				return jugador;
+			}	
 		}
-	
-		return cont;
 		
+		return 0; //Si no existe ningun ganador aun, se devulve 0.
 	}
 	
 	private int ganadorColumnas() {
 
-		int cont=0;
-		int valor=0;
-		
-		for(int f=0; f<tablero.length; f++) { //Recorro filas
+		for(int jugador=1 ; jugador<=2 ; jugador++) {
 
-			valor=tablero[0][f]; //Agarro el primer valor de la fila
-
-			for(int c=0; c<tablero[0].length; c++) { //Recorro las columnas
-				cont += tablero[c][f]==valor? 1:0;
+			if(tablero[0][0]==jugador && tablero[1][0]==jugador && tablero[2][0]==jugador) {
+				return jugador;
 			}
-			
-			if(cont==3) {return valor;}
-			cont=0;  //Reseteo el valor del contador
-		}
 
-		return cont;
+			if(tablero[0][1]==jugador && tablero[1][1]==jugador && tablero[2][1]==jugador) {
+				return jugador;
+			}
+
+			if(tablero[0][2]==jugador && tablero[1][2]==jugador && tablero[2][0]==jugador) {
+				return jugador;
+			}	
+		}
+		
+		return 0;
 		
 	}
 	
-	private int ganadorDiagonalIzquierda() {
+	private int ganadorDiagonal() {
 		
-		int cont = 0;
-		int aux=0;
-		int valor=tablero[0][0];
-		
-		for(int c=0; c<tablero.length; c++ ) {
-			
-			cont += tablero[aux][c]==valor?1:0;
-			aux++;
-			
-		}
-		return cont==3?valor:0;
-		
-	}
+		for(int jugador=1 ; jugador<=2 ; jugador++) {
 
-	
-	private int ganadorDiagonalDerecha() {
-		int cont = 0;
-		int aux=0;
-		int valor=tablero[0][2];
-		
-		for(int c=tablero.length-1; c>=0; c--) {
-			cont += tablero[aux][c]==valor?1:0;
-			aux++;
+			if(tablero[0][0]==jugador && tablero[1][1]==jugador && tablero[2][2]==jugador) {
+				return jugador;
+			}
+
+			if(tablero[0][2]==jugador && tablero[1][1]==jugador && tablero[0][0]==jugador) {
+				return jugador;
+			}
+
 		}
-		return cont==3?valor:0;
+		return 0;
 		
 	}
 	
 	private int ganadorDiagonalesContinuas() { //Contemplo cada posible caso que existe para ganar con diagonales continuas.
 	
-		for(int i=1 ; i<=2 ; i++) {
+		for(int jugador=1 ; jugador<=2 ; jugador++) {
 			
-			if( tablero[1][0]==i && tablero[0][1]==i && tablero[2][2]==i) {
-				return i;
+			if( tablero[1][0]==jugador && tablero[0][1]==jugador && tablero[2][2]==jugador) {
+				return jugador;
 			}
-			else if(tablero[0][1]==i && tablero[1][2]==i && tablero[2][0]==i) {
-				return i;
+			else if(tablero[0][1]==jugador && tablero[1][2]==jugador && tablero[2][0]==jugador) {
+				return jugador;
 			}
-			else if(tablero[1][2]==i && tablero[2][1]==i && tablero[0][0]==i) {
-				return i;
+			else if(tablero[1][2]==jugador && tablero[2][1]==jugador && tablero[0][0]==jugador) {
+				return jugador;
 			}
-			else if(tablero[2][1]==i && tablero[1][0]==i && tablero[0][2]==i) {
-				return i;
+			else if(tablero[2][1]==jugador && tablero[1][0]==jugador && tablero[0][2]==jugador) {
+				return jugador;
 			}
 		}
 		return 0;
@@ -165,18 +148,6 @@ public class Tablero {
 	public int getTurno() {
 		return turnos;
 	}	
-	
-	@Override
-	public String toString() {
-		String mat = "";
-		for(int c=0; c<tablero[0].length; c++) {
-			for(int f=0; f<tablero.length; f++) {
-				mat += String.valueOf(tablero[c][f])+" ";	
-			}
-			mat+="\n";
-		}
-		return mat;	
-	}
 	
 	
 }

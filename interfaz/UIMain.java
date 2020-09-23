@@ -12,9 +12,10 @@ public class UIMain {
 
 	private JFrame frame;
 
-	/**
-	 * Launch the application.
-	 */
+	private static JPanelTablero tablero;
+	private static JPanelLogin login;
+	private static JPanelGanador panelGanador;
+	
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
@@ -50,15 +51,21 @@ public class UIMain {
 		frame.getContentPane().add(layeredPane);
 		
 		//Se crean los paneles necesarios para mostrar todo
-		JPanelLogin login = new JPanelLogin();
+		login = new JPanelLogin();
 		login.setBounds(0, 0, 458, 279);
 		
-		JPanelTablero tablero = new JPanelTablero();
+		tablero = new JPanelTablero();
 		tablero.setBounds(0, 0, 458, 279);
 		tablero.setVisible(false); //Como este es el segundo panel entonces se crea y se oculta.
 		
+		panelGanador = new JPanelGanador(); 
+		panelGanador.setBounds(0,0,458,279);
+		panelGanador.setVisible(false);
+		
+		
 		layeredPane.add(login);
 		layeredPane.add(tablero);
+		layeredPane.add(panelGanador);
 		
 		
 		login.getBoton().addMouseListener(new MouseAdapter() {
@@ -79,6 +86,20 @@ public class UIMain {
 		
 		
 		
-		
 	}
+	
+	public static void detectarGanador() {
+		if(tablero.getGanador()==1) {
+			panelGanador.setNombreGanador(login.getNombreJugador1());
+			tablero.setVisible(false);
+			panelGanador.setVisible(true);
+
+		}
+		else if(tablero.getGanador()==2) {
+			panelGanador.setNombreGanador(login.getNombreJugador2());
+			tablero.setVisible(false);
+			panelGanador.setVisible(true);
+		}
+	}
+	
 }
