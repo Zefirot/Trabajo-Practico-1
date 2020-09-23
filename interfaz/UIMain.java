@@ -49,25 +49,30 @@ public class UIMain {
 		layeredPane.setBounds(0, 0, 458, 279);
 		frame.getContentPane().add(layeredPane);
 		
+		//Se crean los paneles necesarios para mostrar todo
 		JPanelLogin login = new JPanelLogin();
 		login.setBounds(0, 0, 458, 279);
 		
 		JPanelTablero tablero = new JPanelTablero();
 		tablero.setBounds(0, 0, 458, 279);
-		tablero.setVisible(false);
+		tablero.setVisible(false); //Como este es el segundo panel entonces se crea y se oculta.
 		
 		layeredPane.add(login);
 		layeredPane.add(tablero);
 		
 		
-		login.sePresiono().addMouseListener(new MouseAdapter() {
+		login.getBoton().addMouseListener(new MouseAdapter() {
 			
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
 				
-				login.setVisible(false);
-				tablero.setVisible(true);
-				JOptionPane.showMessageDialog(frame, "Aiuda"); //ARREGLAR ESTO (Forma de obligar al usuario a ingresar 2 nombres)
+				if(login.getNombreJugador1().equals("") || login.getNombreJugador2().equals("")) {
+					JOptionPane.showMessageDialog(frame, "Se debe ingresar los nombres de los jugadores"); 
+				}else {
+					login.setVisible(false);
+					tablero.setVisible(true);
+				}		
+				
 			}
 			
 		});

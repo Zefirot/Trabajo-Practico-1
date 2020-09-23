@@ -5,8 +5,7 @@ public class Tablero {
 
 	private int[][] tablero;
 	private int turnos;
-	
-	
+
 	public Tablero() {
 		this.tablero = new int[3][3]; 
 		this.turnos=0;
@@ -165,8 +164,7 @@ public class Tablero {
 
 	public int getTurno() {
 		return turnos;
-	}
-	
+	}	
 	
 	@Override
 	public String toString() {

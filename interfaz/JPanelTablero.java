@@ -12,25 +12,22 @@ import javax.swing.JPanel;
 import codigoBusiness.Tablero;
 
 public class JPanelTablero extends JPanel {
-
-	/**
-	 * Create the panel.
-	 */
 	
 	private Tablero tablero;
 	
 	public JPanelTablero() {
 		setLayout(null);
 		
-		//Creo el tablero
+		//Se crea el tablero
 		this.tablero=new Tablero();
 		
-		
+		//Contador de turnos
 		JLabel lblTurnos = new JLabel("Turnos: 0");
 		lblTurnos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblTurnos.setBounds(10, 11, 83, 20);
 		add(lblTurnos);
 		
+		//Botones que componen el tablero
 		JButton btnButton1 = new JButton("");
 		btnButton1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -40,11 +37,11 @@ public class JPanelTablero extends JPanel {
 					
 					tablero.marcarTablero(1);
 
-					lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+					lblTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno())); //Se actualiza el contador de turnos
 					
 					btnButton1.setEnabled(false);
 					
-					if(tablero.getTurno()%2==0) {
+					if(tablero.getTurno()%2==0) { //Dependiendo del turno se va a marcar con una "O" o "X"
 						btnButton1.setText("O");
 					}else {
 						btnButton1.setText("X");
@@ -254,5 +251,7 @@ public class JPanelTablero extends JPanel {
 		add(btnButton9);
 		
 	}
+	
+	
 
 }

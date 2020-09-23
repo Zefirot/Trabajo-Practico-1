@@ -17,35 +17,38 @@ public class JPanelLogin extends JPanel {
 	 */
 	private JButton btnJugar;
 	
+	private JTextField textNombreJugador1;
+	private JTextField textNombreJugador2;
+	
 	public JPanelLogin() {
 		setLayout(null);
 
 		setBackground(Color.GRAY);
 		
 		
-		//Texto para pedir nombres de jugadores
-		JLabel lblNewLabel = new JLabel("Nombre del juagador 1:");
-		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel.setBounds(67, 30, 164, 44);
-		add(lblNewLabel);
+		//Labels para pedir los nombres de los jugadores
+		JLabel lblNombreJugador1 = new JLabel("Nombre del juagador 1:");
+		lblNombreJugador1.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNombreJugador1.setBounds(67, 30, 164, 44);
+		add(lblNombreJugador1);
 
-		JLabel lblNewLabel_1 = new JLabel("Nombre del jugador 2:");
-		lblNewLabel_1.setFont(new Font("Tahoma", Font.PLAIN, 15));
-		lblNewLabel_1.setBounds(67, 79, 164, 49);
-		add(lblNewLabel_1);
+		JLabel lblNombreJugador2 = new JLabel("Nombre del jugador 2:");
+		lblNombreJugador2.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblNombreJugador2.setBounds(67, 79, 164, 49);
+		add(lblNombreJugador2);
 
-		//Nombre de jugadores
-		JTextField textNombreJugador1 = new JTextField();
+		//Nombre de jugadores 
+		this.textNombreJugador1 = new JTextField();
 		textNombreJugador1.setBounds(258, 39, 114, 30);
 		add(textNombreJugador1);
 		textNombreJugador1.setColumns(10);
 
-		JTextField textNombreJugador2 = new JTextField();
+		this.textNombreJugador2 = new JTextField();
 		textNombreJugador2.setBounds(258, 92, 114, 30);
 		add(textNombreJugador2);
 		textNombreJugador2.setColumns(10);
 
-
+		//Boton que acciona el cambio de panel
 		this.btnJugar = new JButton("Jugar!");
 		btnJugar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnJugar.setBounds(149, 199, 152, 63);
@@ -55,9 +58,15 @@ public class JPanelLogin extends JPanel {
 		
 	}
 	
-	public JButton sePresiono() {
+	public JButton getBoton() {
 		return btnJugar;
 	}
 	
-
+	public String getNombreJugador1() {
+		return textNombreJugador1.getText();
+	}
+	public String getNombreJugador2() {
+		return textNombreJugador2.getText();
+	}
+	
 }
