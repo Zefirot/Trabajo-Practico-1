@@ -77,6 +77,7 @@ public class UIMain {
 					JOptionPane.showMessageDialog(frame, "Se debe ingresar los nombres de los jugadores"); 
 				}else {
 					login.setVisible(false);
+					tablero.setNombreDeJugadores(login.getNombreJugador1(), login.getNombreJugador2());
 					tablero.setVisible(true);
 				}		
 				
