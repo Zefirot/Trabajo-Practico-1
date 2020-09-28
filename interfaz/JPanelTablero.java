@@ -197,6 +197,7 @@ public class JPanelTablero extends JPanel {
 		lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
 		
 		boton.setEnabled(false);
+		
 		if(tablero.getTurno()%2==0) { 
 			boton.setText("O");
 			lblTurnoNombre.setText("Turno de: "+nombreJugador1);

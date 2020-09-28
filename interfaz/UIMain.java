@@ -66,26 +66,14 @@ public class UIMain {
 		layeredPane.add(login);
 		layeredPane.add(tablero);
 		layeredPane.add(panelGanador);
+
 		
-		
-		login.getBoton().addMouseListener(new MouseAdapter() {
-			
-			@Override
-			public void mouseClicked(MouseEvent arg0) {
-				
-				if(login.getNombreJugador1().equals("") || login.getNombreJugador2().equals("")) {
-					JOptionPane.showMessageDialog(frame, "Se debe ingresar los nombres de los jugadores"); 
-				}else {
-					login.setVisible(false);
-					tablero.setNombreDeJugadores(login.getNombreJugador1(), login.getNombreJugador2());
-					tablero.setVisible(true);
-				}		
-				
-			}
-			
-		});
-		
-		
+	}
+
+	public static void cambiarATablero() {
+		login.setVisible(false);
+		tablero.setNombreDeJugadores(login.getNombreJugador1(), login.getNombreJugador2());
+		tablero.setVisible(true);
 		
 	}
 	

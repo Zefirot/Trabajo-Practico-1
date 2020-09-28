@@ -7,6 +7,7 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -52,14 +53,19 @@ public class JPanelLogin extends JPanel {
 		this.btnJugar = new JButton("Jugar!");
 		btnJugar.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		btnJugar.setBounds(149, 199, 152, 63);
-		add(btnJugar);
-
-
 		
-	}
-	
-	public JButton getBoton() {
-		return btnJugar;
+		btnJugar.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				if(textNombreJugador1.getText().equals(" ")||textNombreJugador2.getText().equals("")) {
+					JOptionPane.showMessageDialog(null, "Se debe ingresar los nombres de los jugadores"); 
+				}else {
+					UIMain.cambiarATablero();
+				}
+			}
+		});
+		
+		add(btnJugar);
 	}
 	
 	public String getNombreJugador1() {
