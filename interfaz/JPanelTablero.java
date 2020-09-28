@@ -19,6 +19,7 @@ public class JPanelTablero extends JPanel {
 	private String nombreJugador1;
 	private String nombreJugador2;
 	private JLabel lblTurnoNombre;
+	private JLabel lblNumeroTurnos;
 	
 	public JPanelTablero() {
 		setLayout(null);
@@ -27,7 +28,7 @@ public class JPanelTablero extends JPanel {
 		this.tablero=new Tablero();
 		
 		//Contador de turnos
-		JLabel lblNumeroTurnos = new JLabel("Turnos: 0");
+		lblNumeroTurnos = new JLabel("Turnos: 0");
 		lblNumeroTurnos.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblNumeroTurnos.setBounds(357, 11, 83, 20);
 		add(lblNumeroTurnos);
@@ -46,22 +47,8 @@ public class JPanelTablero extends JPanel {
 
 				if(btnButton1.isEnabled()) { //Forma de controlar el boton para que solo se presione 1 vez.
 					
-					tablero.marcarTablero(1);
-
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno())); //Se actualiza el contador de turnos
+					marcarTablero(btnButton1, 1);
 					
-					btnButton1.setEnabled(false);
-					
-					if(tablero.getTurno()%2==0) { //Dependiendo del turno se va a marcar con una "O" o "X"
-						btnButton1.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton1.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					
-					UIMain.detectarGanador();
 				}
 
 			}
@@ -76,21 +63,9 @@ public class JPanelTablero extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 
 				if(btnButton2.isEnabled()) {
-					tablero.marcarTablero(2);
-
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
 					
-					btnButton2.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton2.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton2.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
+					marcarTablero(btnButton2, 2);
 					
-					
-					UIMain.detectarGanador();
 				}
 
 			}
@@ -104,21 +79,8 @@ public class JPanelTablero extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 
 				if(btnButton3.isEnabled()) {
-					tablero.marcarTablero(3);
-					
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-					
-					btnButton3.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton3.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton3.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					
-					UIMain.detectarGanador();
+						
+					marcarTablero(btnButton3, 3);
 
 				}
 
@@ -134,21 +96,7 @@ public class JPanelTablero extends JPanel {
 
 				if(btnButton4.isEnabled()) {
 					
-					tablero.marcarTablero(4);
-
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-					
-					btnButton4.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton4.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton4.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					
-					UIMain.detectarGanador();
+					marcarTablero(btnButton4, 4);
 					
 				}
 	
@@ -165,20 +113,7 @@ public class JPanelTablero extends JPanel {
 				
 				if(btnButton5.isEnabled()) {
 					
-					tablero.marcarTablero(5);
-					
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-
-					btnButton5.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton5.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton5.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					UIMain.detectarGanador();
+					marcarTablero(btnButton5, 5);
 					
 				}
 				
@@ -195,21 +130,7 @@ public class JPanelTablero extends JPanel {
 				
 				if(btnButton6.isEnabled()) {
 					
-					tablero.marcarTablero(6);
-					
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-
-					btnButton6.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton6.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton6.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					
-					UIMain.detectarGanador();
+					marcarTablero(btnButton6, 6);
 					
 				}
 
@@ -225,20 +146,8 @@ public class JPanelTablero extends JPanel {
 				
 				if(btnButton7.isEnabled()) {
 					
-					tablero.marcarTablero(7);
 					
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-					
-					btnButton7.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton7.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton7.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					UIMain.detectarGanador();
+					marcarTablero(btnButton7, 7);
 					
 				}
 			}
@@ -252,20 +161,8 @@ public class JPanelTablero extends JPanel {
 			public void mouseClicked(MouseEvent e) {
 				
 				if(btnButton8.isEnabled()) {
-					tablero.marcarTablero(8);
 					
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-					
-					btnButton8.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton8.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton8.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					UIMain.detectarGanador();
+					marcarTablero(btnButton8, 8);
 					
 				}
 				
@@ -281,21 +178,8 @@ public class JPanelTablero extends JPanel {
 				
 				if(btnButton9.isEnabled()) {
 					
-					tablero.marcarTablero(9);
+					marcarTablero(btnButton9, 9);
 					
-					lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
-					
-					btnButton9.setEnabled(false);
-					if(tablero.getTurno()%2==0) { 
-						btnButton9.setText("O");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador1);
-					}else {
-						btnButton9.setText("X");
-						lblTurnoNombre.setText("Turno de: "+nombreJugador2);
-					}
-					
-					
-					UIMain.detectarGanador();
 				}
 					
 			}
@@ -305,6 +189,26 @@ public class JPanelTablero extends JPanel {
 		
 		
 	}
+	
+	private void marcarTablero(JButton boton, int posicion) {
+		
+		tablero.marcarTablero(posicion);
+		
+		lblNumeroTurnos.setText("Turnos: "+String.valueOf(tablero.getTurno()));
+		
+		boton.setEnabled(false);
+		if(tablero.getTurno()%2==0) { 
+			boton.setText("O");
+			lblTurnoNombre.setText("Turno de: "+nombreJugador1);
+		}else {
+			boton.setText("X");
+			lblTurnoNombre.setText("Turno de: "+nombreJugador2);
+		}
+		
+		UIMain.detectarGanador();
+		
+	}
+	
 	
 	public void setNombreDeJugadores(String nombre_1, String nombre_2) {
 		lblTurnoNombre.setText("Turno de: "+nombre_1);
