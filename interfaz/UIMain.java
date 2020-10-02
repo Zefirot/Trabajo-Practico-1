@@ -7,6 +7,8 @@ import java.awt.event.MouseEvent;
 import javax.swing.JFrame;
 import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 
 public class UIMain {
 
@@ -46,6 +48,12 @@ public class UIMain {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e) {
+			e.printStackTrace();
+		}
+		
 		JLayeredPane layeredPane = new JLayeredPane();
 		layeredPane.setBounds(0, 0, 458, 279);
 		frame.getContentPane().add(layeredPane);
@@ -80,12 +88,13 @@ public class UIMain {
 	public static void detectarGanador() {
 		if(tablero.getGanador()==1) {
 			panelGanador.setNombreGanador(login.getNombreJugador1());
+			panelGanador.setImagenGanador(login.getImagenJugador1());
 			tablero.setVisible(false);
 			panelGanador.setVisible(true);
-
 		}
 		else if(tablero.getGanador()==2) {
 			panelGanador.setNombreGanador(login.getNombreJugador2());
+			panelGanador.setImagenGanador(login.getImagenJugador2());
 			tablero.setVisible(false);
 			panelGanador.setVisible(true);
 		}
