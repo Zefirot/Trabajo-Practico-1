@@ -15,7 +15,7 @@ public class JPanelGanador extends JPanel {
 	
 	public JPanelGanador() {
 		setLayout(null);
-		
+			
 		this.lblNombreGanador = new JLabel("Felicidades: ");
 		lblNombreGanador.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		lblNombreGanador.setBounds(131, 213, 207, 38);
@@ -25,6 +25,8 @@ public class JPanelGanador extends JPanel {
 		lblFotoGanador.setBounds(103, 34, 250, 151);
 		add(lblFotoGanador);
 
+		this.imagenGanador = new ImageIcon(getClass().getResource("../imagenes/imagen_JugadorX.jpg")).getImage();	
+		imagenGanador = imagenGanador.getScaledInstance(lblFotoGanador.getWidth(), lblFotoGanador.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		
 	}
 	
@@ -33,7 +35,7 @@ public class JPanelGanador extends JPanel {
 	}
 	public void setImagenGanador(Image imagen) {
 		if(imagen==null) {
-			
+			lblFotoGanador.setIcon(new ImageIcon(imagenGanador));
 		}else {
 			imagenGanador = imagen.getScaledInstance(lblFotoGanador.getWidth(), lblFotoGanador.getHeight(), java.awt.Image.SCALE_SMOOTH);
 			

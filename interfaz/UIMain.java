@@ -9,6 +9,7 @@ import javax.swing.JLayeredPane;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+import java.awt.Toolkit;
 
 public class UIMain {
 
@@ -43,6 +44,7 @@ public class UIMain {
 	 */
 	private void initialize() {
 		frame = new JFrame();
+		frame.setIconImage(Toolkit.getDefaultToolkit().getImage(UIMain.class.getResource("/imagenes/icono_Teteti.png")));
 		frame.setTitle("TATETORO");
 		frame.setBounds(100, 100, 474, 318);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
