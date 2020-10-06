@@ -20,7 +20,7 @@ public class JPanelTablero extends JPanel {
 	private String nombreJugador2;
 	private JLabel lblTurnoNombre;
 	private JLabel lblNumeroTurnos;
-	
+	 
 	public JPanelTablero() {
 		setLayout(null);
 		
@@ -190,6 +190,9 @@ public class JPanelTablero extends JPanel {
 		
 	}
 	
+	/*La funcion marcarTablero realiza casi todo el funcionamiento del juego como tal, marca el tablero, muestra de quien es el turno,
+	 * coloca el boton que se presiono en false, refresca el numero de turnos y pide que UIMain realizar el cambio de panel cuando hay un ganador.
+	*/
 	private void marcarTablero(JButton boton, int posicion) {
 		
 		tablero.marcarTablero(posicion);
@@ -210,7 +213,7 @@ public class JPanelTablero extends JPanel {
 		
 	}
 	
-	
+	//Esta funcion obtiene los nombres de los jugadores para poder mostrarlos en pantalla
 	public void setNombreDeJugadores(String nombre_1, String nombre_2) {
 		lblTurnoNombre.setText("Turno de: "+nombre_1);
 	
@@ -218,6 +221,9 @@ public class JPanelTablero extends JPanel {
 		this.nombreJugador2 = nombre_2;
 	}
 	
+	/*La funcion tablero.ganador() simplemente retorna si hay un ganador o no, mediante numeros que van del 0(No hay ganador),
+	 * 1(Ganador jugador 1) y 2(Ganador jugador 2).
+	*/
 	public int getGanador() {
 		return tablero.ganador();
 	}

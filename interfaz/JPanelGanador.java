@@ -25,6 +25,7 @@ public class JPanelGanador extends JPanel {
 		lblFotoGanador.setBounds(103, 34, 250, 151);
 		add(lblFotoGanador);
 
+		//Se "carga" la imagen por default cuando hay un ganador pero el ganador como tal no cargo una imagen para representarse.
 		this.imagenGanador = new ImageIcon(getClass().getResource("../imagenes/imagen_JugadorX.jpg")).getImage();	
 		imagenGanador = imagenGanador.getScaledInstance(lblFotoGanador.getWidth(), lblFotoGanador.getHeight(), java.awt.Image.SCALE_SMOOTH);
 		
@@ -37,6 +38,7 @@ public class JPanelGanador extends JPanel {
 		if(imagen==null) {
 			lblFotoGanador.setIcon(new ImageIcon(imagenGanador));
 		}else {
+			//Se rescala la imagen, asi queda acomodada para el label.
 			imagenGanador = imagen.getScaledInstance(lblFotoGanador.getWidth(), lblFotoGanador.getHeight(), java.awt.Image.SCALE_SMOOTH);
 			
 			lblFotoGanador.setIcon(new ImageIcon(imagenGanador));

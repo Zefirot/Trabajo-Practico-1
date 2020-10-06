@@ -22,7 +22,7 @@ public class JPanelLogin extends JPanel {
 	 * Create the panel.
 	 */
 	private JButton btnJugar;
-	
+	 
 	private JTextField textNombreJugador1;
 	private JTextField textNombreJugador2;
 	
@@ -62,7 +62,8 @@ public class JPanelLogin extends JPanel {
 		btnJugar.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent arg0) {
-				if(textNombreJugador1.getText().equals(" ")||textNombreJugador2.getText().equals("")) {
+				//Si los nombres estan vacios se le va a pedir que ingrese los nombres
+				if(textNombreJugador1.getText().equals(" ")||textNombreJugador2.getText().equals("")) { 
 					JOptionPane.showMessageDialog(null, "Se debe ingresar los nombres de los jugadores"); 
 				}else {
 					UIMain.cambiarATablero();
@@ -72,7 +73,7 @@ public class JPanelLogin extends JPanel {
 		
 		add(btnJugar);
 		
-		
+		//CheckBox que verifican cuando esta subida la imagen de los jugadores
 		JCheckBox checkBox_Foto1 = new JCheckBox("");
 		checkBox_Foto1.setBounds(429, 40, 21, 23);
 		checkBox_Foto1.setEnabled(false);
@@ -83,7 +84,7 @@ public class JPanelLogin extends JPanel {
 		checkBox_Foto2.setEnabled(false);
 		add(checkBox_Foto2);
 		
-		
+		//Botones que accionan la funcion para subir las imagenes al programa
 		JButton btnFotoJugador_1 = new JButton("Foto Jugador 1");
 		btnFotoJugador_1.addMouseListener(new MouseAdapter() {
 			@Override
@@ -113,6 +114,7 @@ public class JPanelLogin extends JPanel {
 		
 	}
 	
+	//En la funcion capturarImagen se le pasa un checkbox para poder marcarlo y un boton para que el file chooser pueda mostrar el cuadro de dialogo
 	private Image capturarImagen(JButton boton, JCheckBox checkBox) {
 		Image imagenCapturada=null;
 		JFileChooser fc = new JFileChooser();
@@ -132,7 +134,7 @@ public class JPanelLogin extends JPanel {
 	}
 	
 	
-	
+	//Gets
 	public Image getImagenJugador1() {
 		return imagenJugador_1;
 	}

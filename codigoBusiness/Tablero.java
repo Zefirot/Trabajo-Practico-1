@@ -11,12 +11,12 @@ public class Tablero {
 		this.turnos=0;
 	}
 	
-	public void marcarTablero(int posicion) {
+	public void marcarTablero(int posicion) { 
 		verificarPosicion(posicion);
 		
 		turnos++;
 		
-		if(turnos%2==1) { //Cuando turnos es impar significa que le toca al jugador 1
+		if(turnos%2==1) { //Cuando turnos es impar significa que es el turno del jugador 1
 			asignar(tablero,posicion,1);
 		}else {
 			asignar(tablero,posicion,2);
@@ -67,7 +67,7 @@ public class Tablero {
 		}
 	}
 	
-	private int ganadorFilas() { //Se detecta cuando hay un ganador por filas.
+	private int ganadorFilas() { //Detecta cuando hay un ganador por filas.
 		
 		for(int jugador=1 ; jugador<=2 ; jugador++) {
 			
@@ -148,6 +148,5 @@ public class Tablero {
 	public int getTurno() {
 		return turnos;
 	}	
-	
 	
 }

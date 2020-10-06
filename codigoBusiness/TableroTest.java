@@ -36,18 +36,14 @@ public class TableroTest {
 		assertEquals(4,tablero.getTurno());
 	}
 	
-	
-	
 	@Test
 	public void TableroGanadorFilaTest() { //FILAS
-		
+		//P1 es el jugador 1 y P2 es el jugador 2
 		tablero.marcarTablero(7); //P1
 		tablero.marcarTablero(5); //P2
 		tablero.marcarTablero(8); //P1
 		tablero.marcarTablero(4); //P2
 		tablero.marcarTablero(9); //P1
-		//tablero.marcarTablero(6); //P2
-	
 		assertEquals(1,tablero.ganador());
 	}
 	
@@ -65,6 +61,17 @@ public class TableroTest {
 		assertEquals(1,tablero.ganador());
 	}
 	
+	@Test 
+	public void TableroGanadorDiagonal() {
+		
+		tablero.marcarTablero(1);//P1
+		tablero.marcarTablero(2);//P2
+		tablero.marcarTablero(5);//P1
+		tablero.marcarTablero(7);//P2
+		tablero.marcarTablero(9);//P1
+		
+		assertEquals(1,tablero.ganador());
+	}
 	
 	@Test
 	public void TableroGanadorDiagonalContinuasTest() { //DIAGONALES CONTINUAS
