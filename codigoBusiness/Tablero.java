@@ -50,21 +50,15 @@ public class Tablero {
 	
 	public int ganador() {
 		
-		if(ganadorFilas()>0) {
-			return ganadorFilas();
-		}
-		else if(ganadorColumnas()>0) {
-			return ganadorColumnas();
-		}
-		else if(ganadorDiagonal()>0) {
-			return ganadorDiagonal();
-		}
-		else if(ganadorDiagonalesContinuas()>0) {
-			return ganadorDiagonalesContinuas();
-		}
-		else {
-			return 0;
-		}
+		if(ganadorFilas()>0) { return ganadorFilas(); }
+		
+		if(ganadorColumnas()>0) { return ganadorColumnas(); }
+		
+		if(ganadorDiagonal()>0) { return ganadorDiagonal(); }
+		
+		if(ganadorDiagonalesContinuas()>0) { return ganadorDiagonalesContinuas(); }
+		
+		return 0;
 	}
 	
 	private int ganadorFilas() { //Detecta cuando hay un ganador por filas.
@@ -99,7 +93,7 @@ public class Tablero {
 				return jugador;
 			}
 
-			if(tablero[0][2]==jugador && tablero[1][2]==jugador && tablero[2][0]==jugador) {
+			if(tablero[0][2]==jugador && tablero[1][2]==jugador && tablero[2][2]==jugador) {
 				return jugador;
 			}	
 		}
@@ -116,7 +110,7 @@ public class Tablero {
 				return jugador;
 			}
 
-			if(tablero[0][2]==jugador && tablero[1][1]==jugador && tablero[0][0]==jugador) {
+			if(tablero[0][2]==jugador && tablero[1][1]==jugador && tablero[2][0]==jugador) {
 				return jugador;
 			}
 

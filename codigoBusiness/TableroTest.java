@@ -28,7 +28,7 @@ public class TableroTest {
 	
 	@Test
 	public void TurnosTest() {
-		tablero.marcarTablero(1);
+		tablero.marcarTablero(1); 
 		tablero.marcarTablero(2);
 		tablero.marcarTablero(3);
 		tablero.marcarTablero(4);
@@ -62,7 +62,7 @@ public class TableroTest {
 	}
 	
 	@Test 
-	public void TableroGanadorDiagonal() {
+	public void TableroGanadorDiagonal() {  //DIAGONAL
 		
 		tablero.marcarTablero(1);//P1
 		tablero.marcarTablero(2);//P2
